@@ -1,1 +1,1 @@
-# E-commerce-Back-End-Object-Relational-Mapping-ORM-
+# Internet Retail Store E-commerce-Back-End WITH Object-Relational-Mapping (ORM)
