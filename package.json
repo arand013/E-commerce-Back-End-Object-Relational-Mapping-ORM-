@@ -1,0 +1,26 @@
+{
+  "name": "E-commerce-Back-End-Object-Relational-Mapping-ORM-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arand013/E-commerce-Back-End-Object-Relational-Mapping-ORM-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arand013/E-commerce-Back-End-Object-Relational-Mapping-ORM-/issues"
+  },
+  "homepage": "https://github.com/arand013/E-commerce-Back-End-Object-Relational-Mapping-ORM-#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "inquirer": "^8.1.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.5"
+  }
+}
