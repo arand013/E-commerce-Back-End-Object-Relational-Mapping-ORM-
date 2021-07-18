@@ -3,7 +3,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
 
-// get all products
+//Product Routes (CRUD or  in the following order GET, POST, PUT, DELETE)
 router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
@@ -28,10 +28,10 @@ router.get('/', (req, res) => {
     });
 });
 
-// get one product
+// route will find 1 single product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  // include its associated Category and Tag data
   Product.findOne({
     where: {
       id: req.params.id
@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// create new product
+// creates a new product
 router.post('/', (req, res) => {
   /* req.body should look like this...
     {
@@ -75,7 +75,7 @@ router.post('/', (req, res) => {
         });
         return ProductTag.bulkCreate(productTagIdArr);
       }
-      // if no product tags, just respond
+      // if no product tags, responds product
       res.status(200).json(product);
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
@@ -94,13 +94,13 @@ router.put('/:id', (req, res) => {
     },
   })
     .then((product) => {
-      // find all associated tags from ProductTag
+      // this finds all associated tags from ProductTag
       return ProductTag.findAll({ where: { product_id: req.params.id } });
     })
     .then((productTags) => {
       // get list of current tag_ids
       const productTagIds = productTags.map(({ tag_id }) => tag_id);
-      // create filtered list of new tag_ids
+      // Filtered list of new tag_ids is created
       const newProductTags = req.body.tagIds
         .filter((tag_id) => !productTagIds.includes(tag_id))
         .map((tag_id) => {
@@ -109,12 +109,12 @@ router.put('/:id', (req, res) => {
             tag_id,
           };
         });
-      // figure out which ones to remove
+      // Filter finds what to remove
       const productTagsToRemove = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
         .map(({ id }) => id);
 
-      // run both actions
+      // Two actions will run
       return Promise.all([
         ProductTag.destroy({ where: { id: productTagsToRemove } }),
         ProductTag.bulkCreate(newProductTags),
@@ -128,7 +128,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
+  // deletes 1 product by its `id` value
   Product.destroy({
     where: {
       id: req.params.id

@@ -3,6 +3,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
+//Tag Routes (CRUD or  in the following order GET, POST, PUT, DELETE)
 router.get('/', (req, res) => {
     Tag.findAll(
         {
