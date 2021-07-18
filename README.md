@@ -2,7 +2,7 @@
 ## Description
 This is a back-end node API routing project file that is designed to generate Professional back-end association for a fictional internet retail company, on their E-commerce website.
 
-After a successful follow through all API routes are configure to the websites front-end work!
+After a successful follow through all API routes are to be configured to the websites front-end work!
 
 * GIVEN a functional Express.js API
 1. WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
