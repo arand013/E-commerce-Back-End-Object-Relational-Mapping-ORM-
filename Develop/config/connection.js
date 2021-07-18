@@ -1,3 +1,4 @@
+//Imported here (Sequelize & .env) for mySQL database usage and connection. 
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
