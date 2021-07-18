@@ -1,9 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection.js');
 
 class Tag extends Model { }
 
+//Tag database requirements (id, tag name)
+// that include: data types, null values, Primary Key, auto increment)
 Tag.init(
   {
     id: {
